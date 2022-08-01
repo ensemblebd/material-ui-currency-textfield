@@ -13,7 +13,9 @@ export default {
     }
   ],
   plugins: [
-    external(),
+    external({
+      includeDependencies: true
+    }),
     url(),
     babel({
       babelrc: false,
@@ -29,6 +31,7 @@ export default {
     }),
     resolve(),
     commonjs({
+      ignoreGlobal: true,
       include: 'node_modules/**',
       namedExports: {
         'node_modules/react/index.js': [
@@ -42,7 +45,9 @@ export default {
           'isElement',
           'isValidElementType',
           'ForwardRef'
-        ]
+        ],
+        react: Object.keys(require("react")),
+        "react-is": Object.keys(require("react-is")),
       }
     })
   ]
