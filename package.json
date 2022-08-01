@@ -19,7 +19,7 @@
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "deploy": "gh-pages -d styleguide",
-    "transpile": "./node_modules/@babel/cli/bin/babel.js src/components/CurrencyTextField -d dist --copy-files",
+    "transpile": "npx babel src/components/CurrencyTextField -d dist --copy-files",
     "prepublishOnly": "npm run transpile",
     "publish-demo": "npm run build && npm run deploy"
   },
