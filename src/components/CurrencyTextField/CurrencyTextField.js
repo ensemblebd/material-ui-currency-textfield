@@ -1,7 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
 import AutoNumeric from "autonumeric"
-import { withStyles } from "@mui/styles"
 import { TextField, InputAdornment } from "@mui/material"
 
 const styles = theme => ({
@@ -123,8 +122,10 @@ class CurrencyTextField extends React.Component {
           ...InputProps,
         }}
         inputProps={{
-          className: classes.textField,
           ...inputProps,
+          style: {
+            textAlign: this.props.textAlign || "right"
+          }
         }}
         {...otherProps}
       />
@@ -215,6 +216,6 @@ CurrencyTextField.defaultProps = {
   maximumValue: "10000000000000",
   minimumValue: "-10000000000000",
 }
-export default withStyles(styles)(CurrencyTextField)
+export default CurrencyTextField;
 
 export const predefinedOptions = AutoNumeric.getPredefinedOptions()
